@@ -13,14 +13,14 @@ import kotlin.system.exitProcess
 fun main() {
 
     do{
-        val nota1 = lerNota()
-        val nota2 = lerNota()
-        val nota3 = lerNota()
-        val nota4 = lerNota()
-        print("Calcule aqui a média de notas dos seus alunos. Selecione 1 para rodar o programa e 2 para sair")
+        print("Calcule aqui a média de notas dos seus alunos. Selecione 1 para rodar o programa e 2 para sair: ")
         val opcao: Int = readln().toInt()
 
         if(opcao == 1){
+            val nota1 = lerNota()
+            val nota2 = lerNota()
+            val nota3 = lerNota()
+            val nota4 = lerNota()
 
             if(notaEvalida(nota1) && notaEvalida(nota2) && notaEvalida(nota3) && notaEvalida(nota4)){
                 val media = calcularMedia(nota1,nota2,nota3,nota4)
@@ -43,7 +43,7 @@ fun lerNota(): Int{
 }
 
 fun notaEvalida(nota: Int): Boolean{
-    if(nota > 0 && nota < 10){
+    if(nota >= 0 && nota <= 10){
         return true
     }
     else{
@@ -58,5 +58,5 @@ fun calcularMedia(nota1: Int, nota2: Int, nota3: Int, nota4: Int): Int{
 }
 
 fun imprimirMedia(media: Int){
-    println(media)
+    println("A média das notas é $media")
 }
